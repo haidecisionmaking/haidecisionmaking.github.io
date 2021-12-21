@@ -1,0 +1,75 @@
+const data = [
+{
+  paper: 'Are Explanations Helpful? A Comparative Study of the Effects of Explanations in AI-Assisted Decision-Making',
+  paper_link: '',
+  venue: 'IUI',
+  year: 2021,
+  authors: 'Xinru Wang, Ming Yin',
+  ai_model: 'GAM',
+  ai_assistance_element: 'prediction; local feature importance; example-based explanations; counterfactual explanations; global feature importance',
+  actual_task: 'recidivism prediction; forest cover prediction',
+  ai_task_type: 'discovery',
+  dataset_type: 'tabular',
+  task_eval_metric: '',
+  ai_eval_metric: 'understanding (self-rated understanding, forward simulation, counterfactual simulation, model errors detection, comprehension quiz); reliance/trust (model confidence acceptance, agreement/acceptance of model suggestions, over reliance, under reliance, appropriate reliance)',
+  key: '1', // own reference, not visualizing
+},
+{
+  paper: 'Assessing the Local Interpretability of Machine Learning Models',
+  venue: 'arXiv',
+  year: 2019,
+  authors: 'Dylan Slack, Sorelle Friedler, Carlos Scheidegger, Chitradeep Roy',
+  ai_model: 'rule-based methods; GAM; NN',
+  ai_assistance_element: 'counterfactual explanations; presentation of simple models',
+  actual_task: 'synthetic dataset',
+  ai_task_type: 'discovery',
+  dataset_type: 'tabular',
+  task_eval_metric: 'efficiency (time taken on the task)',
+  ai_eval_metric: '',
+  key: '2', // own reference, not visualizing
+},
+{
+  paper: 'Interpretable Decision Sets: A Joint Framework for Description and Prediction',
+  venue: 'KDD',
+  year: 2016,
+  authors: 'Himabindu Lakkaraju, Stephen H. Bach, Jure Leskovec',
+  ai_model: 'rule-based methods',
+  ai_assistance_element: 'rule-based; presentation of simple models',
+  actual_task: 'bail outcome prediction; medical diagnosis',
+  ai_task_type: 'discovery',
+  dataset_type: 'tabular',
+  task_eval_metric: 'efficiency (time taken on the task); task satisfaction and mental demand (number of words in user feedback)',
+  ai_eval_metric: '',
+  key: '3', // own reference, not visualizing
+},
+{
+  paper: 'The effects of example-based explanations in a machine learning interface',
+  venue: 'IUI',
+  year: 2019,
+  authors: 'Carrie J. Cai, Jonas Jongejan, Jess Holbrook',
+  ai_model: 'DNN',
+  ai_assistance_element: 'prediction; example-based explanations',
+  actual_task: 'picture guessing',
+  ai_task_type: 'discovery',
+  dataset_type: 'image',
+  task_eval_metric: '',
+  ai_eval_metric: 'understand (self-rated understanding); satisfaction and usability (time spent on application); others (attribution to AI vs. self)',
+  key: '4', // own reference, not visualizing
+},
+{
+  paper: 'What can AI do for me: Evaluating Machine Learning Interpretations in Cooperative Play',
+  venue: 'IUI',
+  year: 2019,
+  authors: 'Shi Feng, Jordan Boyd-Graber',
+  ai_model: 'linear model',
+  ai_assistance_element: 'prediction; model uncertainty; local feature importance; example-based explanations',
+  actual_task: 'quiz bowl',
+  ai_task_type: 'discovery',
+  dataset_type: 'text',
+  task_eval_metric: 'efficacy (accuracy/error)',
+  ai_eval_metric: '',
+  key: '5', // own reference, not visualizing
+},
+]
+
+export default data;
