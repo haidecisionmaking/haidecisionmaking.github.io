@@ -35,8 +35,8 @@ export default class App extends React.Component {
                 As a result, there is growing interest in the research community to augment human decision making with AI assistance. 
                 Besides developing AI technologies for this purpose, the emerging field of human-AI decision making must embrace empirical approaches to form a foundational understanding of how humans interact and work with AI to make decisions.  
                 To invite and help structure research efforts towards a science of understanding and improving human-AI decision making, we survey recent literature of empirical human-subject studies on this topic. 
-                We summarize the study design choices made in over 100 papers in three important aspects: 1) decision tasks, 2) AI models and AI assistance elements, and 3) evaluation metrics.
-                For each aspect, we summarize current trends, discuss gaps in existing literature, and make a list of recommendations for future research.
+                We summarize the study design choices made in over 100 papers in three important aspects:  (1) decision tasks, (2) AI models and AI assistance elements, and (3) evaluation metrics.
+                For each aspect, we summarize current trends, discuss gaps in current practices of the field, and make a list of recommendations for future research.
                 Our survey highlights the need to develop common frameworks to account for the design and research spaces of human-AI decision making, so that researchers can make rigorous choices in study design, and the research community can build on each other's work and produce generalizable scientific knowledge. 
                 We also hope this survey will serve as a bridge for HCI and AI communities to work together to mutually shape the empirical science and computational technologies for human-AI decision making.
                 <br /><br />
@@ -68,7 +68,7 @@ export default class App extends React.Component {
         <Switch>
           <Route path="/home"><Home /></Route>
           <Route path="/about"><About /></Route>
-          <Route path="/"><About /></Route>
+          <Route path="/"><Home /></Route>
         </Switch>
       </div>
       </Router>

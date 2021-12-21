@@ -142,7 +142,7 @@ export default class SurveyTable extends React.Component {
         title: "Venue",
         dataIndex: "venue",
         key: "venue",
-        width: 60,
+        width: 80,
         ...this.getColumnSearchProps("venue")
       },
       {
@@ -160,7 +160,7 @@ export default class SurveyTable extends React.Component {
         dataIndex: "ai_model",
         key: "ai_model",
         // render: text => {return <ul>{text.split(";").map((idx, item) => {return <li key={idx}>item</li>})}</ul>},
-        width: 100,
+        width: 120,
         ...this.getColumnSearchProps("ai_model"),
         // render: text => {
         //   const data = text.split(";").filter(item => item);
