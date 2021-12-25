@@ -1,10 +1,8 @@
 import React from "react";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Input, Button, Space, Menu } from "antd";
-import { SearchOutlined, HomeOutlined, SmileOutlined } from "@ant-design/icons";
-import Highlighter from "react-highlight-words";
-
+import { Menu } from "antd";
+import { HomeOutlined, SmileOutlined } from "@ant-design/icons";
 import SurveyTable from "./SurveyTable"
 
 import "antd/dist/antd.css";
@@ -16,8 +14,11 @@ export default class App extends React.Component {
     current: "home"
   };
 
-  render() {
+  handleClick = e => {
+    this.setState({ current: e.key });
+  };
 
+  render() {
     function Home() {
       return <SurveyTable />
     }
@@ -41,7 +42,7 @@ export default class App extends React.Component {
                 We also hope this survey will serve as a bridge for HCI and AI communities to work together to mutually shape the empirical science and computational technologies for human-AI decision making.
                 <br /><br />
 
-                Read the full survey <a href="#" target="_blank">here.</a>
+                Read the full survey <a href="https://arxiv.org/abs/2112.11471" target="_blank">here.</a>
               </p>
              </div>
     }

@@ -1,9 +1,10 @@
 import React from 'react';
-import 'antd/dist/antd.css';
-import './index.css';
-import { Table, Input, Button, Space } from 'antd';
+import { Alert, Table, Input, Button, Space } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
+
+import 'antd/dist/antd.css';
+import './index.css';
 
 import data from './data'
 
@@ -12,6 +13,10 @@ export default class SurveyTable extends React.Component {
     searchText: '',
     searchedColumn: '',
   };
+
+  capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
   getColumnSearchProps = dataIndex => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
@@ -65,31 +70,22 @@ export default class SurveyTable extends React.Component {
         setTimeout(() => this.searchInput.select(), 100);
       }
     },
-    // render: text =>
-    //   this.state.searchedColumn === dataIndex ? (
-    //     <Highlighter
-    //       highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
-    //       searchWords={[this.state.searchText]}
-    //       autoEscape
-    //       textToHighlight={text ? text.toString() : ''}
-    //     />
-    //   ) : (
-    //     text
-    //   ),
     render: text => {
       if (dataIndex === "ai_model" || dataIndex === "ai_assistance_element" || dataIndex === "actual_task" || dataIndex === "task_eval_metric" || dataIndex === "ai_eval_metric") {
         const data = text.split(";").filter(item => item);
         if (data.length === 0) return null;
-        return this.state.searchedColumn === dataIndex ? (
-          <ul style={{ padding: "0 0 0 20px" }}>{data.map((item) => {
-            return <li key={item}>{<Highlighter
-              highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
-              searchWords={[this.state.searchText]}
-              autoEscape
-              textToHighlight={item ? item.toString() : ''}
-            />}</li>
-          })}</ul>
-        ) : (<ul style={{ padding: "0 0 0 20px" }}>{data.map((item) => { return <li key={item}>{item}</li> })}</ul>);
+        if (data.length !== 1)
+          {return this.state.searchedColumn === dataIndex ? (
+            <ul style={{ padding: "0 0 0 20px" }}>{data.map((item) => {
+              return <li key={item}>{<Highlighter
+                                        highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
+                                        searchWords={[this.state.searchText]}
+                                        autoEscape
+                                        textToHighlight={item ? item.toString() : ''}
+                                      />}</li>
+            })}</ul>
+          ) : (<ul style={{ padding: "0 0 0 20px" }}>{data.map((item) => { return <li key={item}>{item}</li> })}</ul>);
+        }
       }
       return this.state.searchedColumn === dataIndex ? (
         <Highlighter
@@ -98,9 +94,7 @@ export default class SurveyTable extends React.Component {
           autoEscape
           textToHighlight={text ? text.toString() : ''}
         />
-      ) : (
-        text
-      )
+      ) : (text)
     },
   });
 
@@ -117,8 +111,8 @@ export default class SurveyTable extends React.Component {
     this.setState({ searchText: '' });
   };
 
-  something= (text) => {
-    return <div>text</div>
+  handleEntailmentRequest(e) {
+    e.preventDefault();
   }
 
   render() {
@@ -127,22 +121,29 @@ export default class SurveyTable extends React.Component {
         title: "Paper",
         dataIndex: "paper",
         key: "paper",
-        width: 150,
+        width: 250,
         fixed: "left",
         ...this.getColumnSearchProps("paper")
+      },
+      {
+        title: "Paper link",
+        dataIndex: "paper_link",
+        key: "paper_link",
+        width: 100,
+        render: text => <a href={text} target="_blank">Link</a>
       },
       {
         title: "Authors",
         dataIndex: "authors",
         key: "authors",
-        width: 100,
+        width: 200,
         ...this.getColumnSearchProps("authors")
       },
       {
         title: "Venue",
         dataIndex: "venue",
         key: "venue",
-        width: 80,
+        width: 150,
         ...this.getColumnSearchProps("venue")
       },
       {
@@ -159,99 +160,91 @@ export default class SurveyTable extends React.Component {
         title: "AI model",
         dataIndex: "ai_model",
         key: "ai_model",
-        // render: text => {return <ul>{text.split(";").map((idx, item) => {return <li key={idx}>item</li>})}</ul>},
-        width: 120,
+        width: 200,
         ...this.getColumnSearchProps("ai_model"),
-        // render: text => {
-        //   const data = text.split(";").filter(item => item);
-        //   if (data.length === 0) {
-        //     return null;
-        //   }
-        //   return <ul style={{ padding: "0 0 0 20px" }}>{text.split(";").map((item) => { return <li key={item}>{item}</li> })}</ul>
-        // },
       },
       {
         title: "AI assistance element",
         dataIndex: "ai_assistance_element",
         key: "ai_assistance_element",
-        width: 200,
+        width: 250,
         ...this.getColumnSearchProps("ai_assistance_element"),
-        // render: text => {
-        //   const data = text.split(";").filter(item => item);
-        //   if (data.length === 0) {
-        //     return null;
-        //   }
-        //   return <ul style={{ padding: "0 0 0 20px" }}>{text.split(";").map((item) => { return <li key={item}>{item}</li> })}</ul>
-        // },
       },
       {
         title: "Task",
         dataIndex: "actual_task",
         key: "actual_task",
-        width: 150,
+        width: 200,
         ...this.getColumnSearchProps("actual_task"),
-        // render: text => {
-        //   const data = text.split(";").filter(item => item);
-        //   if (data.length === 0) {
-        //     return null;
-        //   }
-        //   return <ul style={{ padding: "0 0 0 20px" }}>{text.split(";").map((item) => { return <li key={item}>{item}</li> })}</ul>
-        // },
       },
       {
         title: "AI task type",
         dataIndex: "ai_task_type",
         key: "ai_task_type",
-        width: 80,
+        width: 100,
         ...this.getColumnSearchProps("ai_task_type")
       },
-      {
-        title: "Dataset type",
-        dataIndex: "dataset_type",
-        key: "dataset_type",
-        width: 80,
-        filters: [
-          { text: 'tabular', value: 'tabular' },
-          { text: 'text', value: 'text' },
-          { text: 'image', value: 'image' },
-        ],
-        // ...this.getColumnSearchProps("dataset_type")
-      },
+      // {
+      //   title: "Dataset type",
+      //   dataIndex: "dataset_type",
+      //   key: "dataset_type",
+      //   width: 100,
+      //   filters: [
+      //     { text: 'tabular', value: 'tabular' },
+      //     { text: 'text', value: 'text' },
+      //     { text: 'image', value: 'image' },
+      //   ],
+      // },
       {
         title: "Task evaluation metric",
         dataIndex: "task_eval_metric",
         key: "task_eval_metric",
-        width: 200,
+        width: 250,
         ...this.getColumnSearchProps("task_eval_metric"),
-        // render: text => {
-        //   const data = text.split(";").filter(item => item);
-        //   if (data.length === 0) {
-        //     return null;
-        //   }
-        //   return <ul style={{ padding: "0 0 0 20px" }}>{text.split(";").map((item) => { return <li key={item}>{item}</li> })}</ul>
-        // },
+
       },
       {
         title: "AI evaluation metric",
         dataIndex: "ai_eval_metric",
         key: "ai_eval_metric",
-        width: 200,
+        width: 250,
         ...this.getColumnSearchProps("ai_eval_metric"),
-        // render: text => {
-        //   const data = text.split(";").filter(item => item);
-        //   if (data.length === 0) {
-        //     return null;
-        //   }
-        //   return <ul style={{ padding: "0 0 0 20px" }}>{text.split(";").map((item) => { return <li key={item}>{item}</li> })}</ul>
-        // },
       },
     ];
-    return <Table columns={columns} 
-                  dataSource={data}
-                  bordered
-                  size="middle"
-                  pagination={false}
-                  style={{padding: "40px 65px 50px 65px"}}
-                  scroll={{ x: "calc(700px + 50%)", y: 700 }} />;
+
+    function refreshPage() {
+      window.location.reload(false);
+    }
+
+    return (
+      <div>
+        <Alert
+          message="Informational Notes"
+          description='This interactive table allows you to search papers by keywords in various columns. For example, you are able to find papers with "explanations" in their title in the "Paper" column. To reset, click on the Reset button.'
+          type="info"
+          showIcon
+          closable
+          style={{margin: "30px 65px 0 65px"}}
+        />
+
+        <Button 
+          style={{margin: "20px 65px 0 65px"}} 
+          type="primary"
+          onClick={refreshPage}>
+            Reset
+        </Button>
+
+        <Table
+          columns={columns}
+          rowClassName={(record, index) => index % 2 === 0 ? 'table-row-light' :  'table-row-dark'}
+          dataSource={data}
+          bordered
+          size="middle"
+          pagination={false}
+          style={{padding: "40px 65px 50px 65px"}}
+          scroll={{ x: "calc(700px + 50%)", y: 700 }} 
+        />;
+      </div>
+    )
   }
 }
