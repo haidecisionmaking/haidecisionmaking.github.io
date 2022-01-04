@@ -36,4 +36,4 @@ The information corresponds to what will be presented in the survey paper. The l
 
 ### Quick contribution via email
 
-"If you want to quickly mention a relevant paper but do not want to go through the hassle of editing the data file, feel free to drop us an at [haidecisionmaking@gmail.com](mailto:haidecisionmaking@gmail.com). We appreciate any construvtive feedback too.
+If you want to quickly mention a relevant paper but do not want to go through the hassle of editing the data file, feel free to drop us an at [haidecisionmaking@gmail.com](mailto:haidecisionmaking@gmail.com). We appreciate any constructive feedback too.

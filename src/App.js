@@ -55,7 +55,7 @@ export default class App extends React.Component {
     const { current } = this.state;
 
     return (
-      <Router>
+      <Router basename="/#">
       <div>
         <Menu
           onClick={this.handleClick}
@@ -72,8 +72,8 @@ export default class App extends React.Component {
         </Menu>
 
         <Switch>
-          <Route path="/haidecisionmaking.github.io/home"><Home /></Route>
-          <Route path="/haidecisionmaking.github.io/about"><About /></Route>
+          <Route path="/home"><Home /></Route>
+          <Route path="/about"><About /></Route>
           <Route path="/"><Home /></Route>
         </Switch>
       </div>
