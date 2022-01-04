@@ -238,6 +238,11 @@ export default class SurveyTable extends React.Component {
           onClick={refreshPage}>
             Reset
         </Button>
+        <br />
+
+        <div style={{margin: "20px 65px 0 65px"}} >
+        There are currently <b>{data.length}</b> papers in the table.
+        </div>
 
         <Table
           columns={columns}

@@ -72,8 +72,8 @@ export default class App extends React.Component {
         </Menu>
 
         <Switch>
-          <Route path="/https://haidecisionmaking.github.io/home"><Home /></Route>
-          <Route path="/https://haidecisionmaking.github.io/about"><About /></Route>
+          <Route path="/haidecisionmaking.github.io/home"><Home /></Route>
+          <Route path="/haidecisionmaking.github.io/about"><About /></Route>
           <Route path="/"><Home /></Route>
         </Switch>
       </div>
