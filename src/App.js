@@ -43,6 +43,11 @@ export default class App extends React.Component {
                 <br /><br />
 
                 Read the full survey <a href="https://arxiv.org/abs/2112.11471" target="_blank">here.</a>
+                <br /><br />
+
+                To add a paper to this interactive table, please follow the instructions and
+                submit a pull request <a href="https://github.com/haidecisionmaking/haidecisionmaking.github.io" target="_blank">here</a>.
+                If you have any questions, feel free to drop us an email at haidecisionmaking (at) gmail (dot) com.
               </p>
              </div>
     }
@@ -67,8 +72,8 @@ export default class App extends React.Component {
         </Menu>
 
         <Switch>
-          <Route path="/home"><Home /></Route>
-          <Route path="/about"><About /></Route>
+          <Route path="/https://haidecisionmaking.github.io/home"><Home /></Route>
+          <Route path="/https://haidecisionmaking.github.io/about"><About /></Route>
           <Route path="/"><Home /></Route>
         </Switch>
       </div>

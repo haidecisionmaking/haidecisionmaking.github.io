@@ -118,6 +118,11 @@ export default class SurveyTable extends React.Component {
   render() {
     const columns = [
       {
+        title: "#",
+        key: "index",
+        render: (text, record, index) => index
+      },
+      {
         title: "Paper",
         dataIndex: "paper",
         key: "paper",
@@ -157,6 +162,13 @@ export default class SurveyTable extends React.Component {
         },
       },
       {
+        title: "Task",
+        dataIndex: "actual_task",
+        key: "actual_task",
+        width: 200,
+        ...this.getColumnSearchProps("actual_task"),
+      },
+      {
         title: "AI model",
         dataIndex: "ai_model",
         key: "ai_model",
@@ -170,20 +182,13 @@ export default class SurveyTable extends React.Component {
         width: 250,
         ...this.getColumnSearchProps("ai_assistance_element"),
       },
-      {
-        title: "Task",
-        dataIndex: "actual_task",
-        key: "actual_task",
-        width: 200,
-        ...this.getColumnSearchProps("actual_task"),
-      },
-      {
-        title: "AI task type",
-        dataIndex: "ai_task_type",
-        key: "ai_task_type",
-        width: 100,
-        ...this.getColumnSearchProps("ai_task_type")
-      },
+      // {
+      //   title: "AI task type",
+      //   dataIndex: "ai_task_type",
+      //   key: "ai_task_type",
+      //   width: 100,
+      //   ...this.getColumnSearchProps("ai_task_type")
+      // },
       // {
       //   title: "Dataset type",
       //   dataIndex: "dataset_type",
@@ -236,7 +241,7 @@ export default class SurveyTable extends React.Component {
 
         <Table
           columns={columns}
-          rowClassName={(record, index) => index % 2 === 0 ? 'table-row-light' :  'table-row-dark'}
+          // rowClassName={(record, index) => index % 2 === 0 ? 'table-row-light' :  'table-row-dark'}
           dataSource={data}
           bordered
           size="middle"

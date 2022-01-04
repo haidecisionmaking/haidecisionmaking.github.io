@@ -1,9 +1,13 @@
-.table-row-light {
-  /* background-color: #fff0f6; */
+/* .table-row-light {
+  background-color: #fff0f6;
 }
 .table-row-dark {
   background-color: #e6f7ff;
-}
+} */
+
+/* .ant-table-tbody > tr.ant-table-row-level-1:hover > td {
+  background: unset;
+} */
 
 body {
   margin: 0;
